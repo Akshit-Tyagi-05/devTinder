@@ -2,45 +2,37 @@ const express = require("express");
 
 const app = express();
 
-app.get("/user/:userID/:name/:password", (req, res) => {     // : (colllon) means it s dynamic route
-    console.log(req.params);
-})
+//app.use("/route", rH, [rH2, rH3], rH4, rh5);
 
-// // app.use("/user", (req, res) => {     // on typin this will run /user/.... (anything) eg /user/Akscc
-// //     res.send("HAHAHAHAHA")           // but on work on         /user.... (anything) abcoz ab string hi change hogi na eg /userAKS
-// // })
+app.get(
+  "/user",
+  (req, res, next) => {
+    console.log("Handling the route user!!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the route user 2!!");
+    // res.send("2nd Response!!");
+    next();
+  },
 
-// app.get("/user", (req, res) => {
-//     res.send({firstName : "Akshit", secondName : "Tyagi"})
-// })
-
-// app.post("/user", (req, res) => {
-//     res.send("Data successfully saved to database")
-// })
-
-// app.delete("/user", (req, res) => {
-//     res.send("Delete successfully")
-// })
-
-// // app.use("/test/2", (req, res) => {
-// //     res.send("HELLO from UP 2")
-// // })
-
-// app.use("/test", (req, res) => {             // knows as routes
-//     res.send("HELLO from UP 1")
-// })
-
-// // app.use("/work", (req, res) => {
-// //     res.send("HELLO from college")
-// // })
-
-// // app.use( (req, res) => {                            
-// //     res.send("HELLO HELLO u are on dasboard")
-// // })
+  (req, res, next) => {
+    console.log("Handling the route user 3!!");
+    // res.send("3rd Response!!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the route user 4!!");
+    // res.send("4th Response!!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the route user 5!!");
+    res.send("5th Response!!");
+  }
+);
 
 app.listen(7777, () => {
-    console.log("Server is succesfully listening on port 300");
+  console.log("Server is successfully listening on port 7777...");
 });
-
-
 
