@@ -76,14 +76,19 @@
 - Explore validator library funcation and Use vlidator funcs for password, email, photoURL
 - NEVER TRUST req.body
 
- - Validate data in Signup API
- - Install bcrypt package
- - Create PasswordHash using bcrypt.hash & save the user is excrupted password
- - Compare passwords and throw errors if email or password is invalid
+- Validate data in Signup API
+- Install bcrypt package
+- Create PasswordHash using bcrypt.hash & save the user is excrupted password
+- Compare passwords and throw errors if email or password is invalid
 
- - install cookie-parser
- - just send a dummy cookie to user
- - create GET /profile APi and check if you get the cookie back
- - install jsonwebtoken 
- - IN login API, after email and password validation, create e JWT token and send it to user in cookies
- - read the cookies inside your profile API and find the logged in user
+- install cookie-parser
+- just send a dummy cookie to user
+- create GET /profile APi and check if you get the cookie back
+- install jsonwebtoken
+- IN login API, after email and password validation, create e JWT token and send it to user in cookies
+- read the cookies inside your profile API and find the logged in
+
+- Add the userAuth middle ware in profile API and a new sendConnectionRequest API
+- Set the expiry of JWT token and cookies to 7 days
+- Create userSchema method to getJWT()
+- Create UserSchema method to comparepassword(passwordInputByUser)
